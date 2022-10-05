@@ -1,0 +1,63 @@
+1) Python 3.8 contains many small improvements over the earlier versions. This article outlines the most significant additions and changes in python 3.8.
+i) Positional-only parameters(/)
+There is a new function parameter syntax “/” which indicates that some function parameters must be specified positionally and can’t be used as keyword arguments. The addition of “/” improves the language’s consistency and allows a robust API design.Example:
+# Arguments before / are considered
+# as positional arguments only
+def add(x, y, /, z = 0):
+	a = x + y + z
+	return a
+
+# Driver's code
+print(add(2, 5))
+print(add(2, 5, 7))
+print(add(x = 2, y = 5))
+
+ii) Assignment Expressions(:=)
+This operator is used to assign and return a value in the same expression. This removes the need for initializing the variable upfront. The major benefit of this is it saves some lines of code. It is also known as “The Walrus Operator” due to its similarity to the eyes and tusks of a walrus.Example:
+a = 20
+if (b := a) > 10:
+	print(f"The value of b is {b} and is greater than 10.")
+
+iii) f-strings now support “=”
+This string formatting mechanism is known as Literal String Interpolation or more commonly as F-strings (because of the leading f character preceding the string literal). The idea behind f-strings is to make string interpolation simpler. Python 3.8 allows the use of the above-discussed assignment operator and equal sign (=) inside the f-strings.
+For example, say we have two variables “a” and “b”, and we want to print “a + b” along with the result. Here we can use f-strings=. Example:
+a = 5
+b = 10
+
+# Using = at the end of
+# f-strings
+print(f'{a + b = }')
+
+# Using assignment operators
+# inside f-strings
+print(f'{(c := a + b)}')
+
+print("The value of c:", c)
+This is very useful during debugging, especially for everyone who uses print() statements for debugging.
+
+2) In Python, the term monkey patch refers to dynamic (or run-time) modifications of a class or module. In Python, we can actually change the behavior of code at run-time.
+# monk.py
+class A:
+	def func(self):
+		print ("func() is being called")
+We use above module (monk) in below code and change behavior of func() at run-time by assigning different value.
+import monk
+def monkey_f(self):
+	print ("monkey_f() is being called")
+
+# replacing address of "func" with "monkey_f"
+monk.A.func = monkey_f
+obj = monk.A()
+
+# calling function "func" whose address got replaced
+# with function "monkey_f()"
+obj.func()
+Examples:
+
+Output :monkey_f() is being called
+
+3)In Shallow copy, a copy of the original object is stored and only the reference address is finally copied. In Deep copy, the copy of the original object and the repetitive copies both are stored.A shallow copy constructs a new compound object and then (to the extent possible) inserts references into it to the objects found in the original. A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original.
+
+4)An identifier can have a maximum length of 79 characters in Python. Python is one of the most popular programming languages.
+
+5)A generator comprehension is a single-line specification for defining a generator in Python. It is absolutely essential to learn this syntax in order to write simple and readable code. Note: Generator comprehensions are not the only method for defining generators in Python.
